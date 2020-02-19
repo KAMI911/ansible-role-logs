@@ -11,7 +11,7 @@
 - name: logrotate configuration for package manager files
   template:
     src: 'package_manager.j2'
-    dest: '{{ logs_logrotate_d_dir }}/package_manager'
+    dest: '{{ logs_logrotate_d_dir }}/yum'
     owner: root
     group: root
     mode: 0644
