@@ -1,0 +1,29 @@
+---
+# defaults file for ansible-role-logs
+
+
+logs_syslog_name: 'syslog'
+logs_syslog_rotate_days: 200
+logs_syslog_rotate_minsize: 20K
+logs_syslog_compress_cmd: '/usr/bin/xz'
+logs_syslog_compress_options: '-9e'
+logs_syslog_compress_ext: .xz
+
+logs_syslog_logs:
+  - '/var/log/cron'
+  - '/var/log/maillog'
+  - '/var/log/messages'
+  - '/var/log/secure'
+  - '/var/log/spooler'
+
+logs_package_manager_name: 'yum'
+logs_package_manager_rotate_days: 200
+logs_package_manager_rotate_minsize: 20K
+logs_package_manager_compress_cmd: '{{ logs_syslog_compress_cmd }}'
+logs_package_manager_compress_options: '{{ logs_syslog_compress_options }}'
+logs_package_manager_compress_ext: '{{ logs_syslog_compress_ext }}'
+
+logs_package_manager_logs:
+  - '/var/log/yum.log'
+
+logs_logrotate_d_dir: '/etc/logrotate.d'

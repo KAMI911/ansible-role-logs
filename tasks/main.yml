@@ -1,0 +1,14 @@
+---
+# tasks file for ansible-role-logs
+
+- include_tasks: configure-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+# - include_tasks: configure-Suse.yml
+#  when: ansible_os_family == 'Suse'
+
+# - include_tasks: configure-Debian.yml
+#  when: ansible_os_family == 'Debian'
+
+# - include_tasks: configure-Solaris.yml
+#  when: ansible_os_family == 'Solaris'

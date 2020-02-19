@@ -1,0 +1,20 @@
+## {{ ansible_managed }}
+
+{% for log_file in logs_syslog_logs %}
+{{ log_file }}
+{% endfor %}
+{
+  sharedscripts
+  postrotate
+    /bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+  endscript
+  daily
+  rotate {{ logs_syslog_rotate_days }}
+  compress
+  missingok
+  notifempty
+  minsize {{ logs_syslog_rotate_minsize }}
+  compresscmd {{ logs_syslog_compress_cmd }}
+  compressoptions "{{ logs_syslog_compress_options }}"
+  compressext .{{ logs_syslog_compress_ext }}
+}

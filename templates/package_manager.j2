@@ -1,0 +1,17 @@
+## {{ ansible_managed }}
+
+{% for log_file in logs_package_manager_logs %}
+{{ log_file }}
+{% endfor %}
+{
+  create 0600 root root
+  daily
+  rotate {{ logs_package_manager_rotate_days }}
+  compress
+  missingok
+  notifempty
+  minsize {{ logs_package_manager_rotate_minsize }}
+  compresscmd {{ logs_package_manager_compress_cmd }}
+  compressoptions "{{ logs_package_manager_compress_options }}"
+  compressext .{{ logs_package_manager_compress_ext }}
+}
