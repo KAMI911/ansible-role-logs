@@ -16,5 +16,5 @@
   minsize {{ logs_syslog_rotate_minsize }}
   compresscmd {{ logs_syslog_compress_cmd }}
   compressoptions "{{ logs_syslog_compress_options }}"
-  compressext .{{ logs_syslog_compress_ext }}
+  compressext {{ logs_syslog_compress_ext }}
 }

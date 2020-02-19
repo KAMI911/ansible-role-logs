@@ -13,5 +13,5 @@
   minsize {{ logs_package_manager_rotate_minsize }}
   compresscmd {{ logs_package_manager_compress_cmd }}
   compressoptions "{{ logs_package_manager_compress_options }}"
-  compressext .{{ logs_package_manager_compress_ext }}
+  compressext {{ logs_package_manager_compress_ext }}
 }
