@@ -41,7 +41,11 @@ Available variables are listed below, along with default values (see `defaults/m
 
     logs_syslog_rotate_minsize: 20K
 
-
+Log files are rotated when they grow bigger than size bytes, but not before the additionally
+specified time interval (daily, weekly, monthly, or yearly). The related size option is
+ similar except that it is mutually exclusive with the time interval options, and it causes
+log files to be rotated without regard for the last rotation time. When minsize is used,
+both the size and timestamp of a log file are considered.
 
     logs_syslog_compress_cmd: '/usr/bin/xz'
 
